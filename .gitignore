@@ -30,3 +30,7 @@ Debug/
 packages/
 
 AutomarbleUML\.uml
+
+temp/
+
+Debug-Dll/

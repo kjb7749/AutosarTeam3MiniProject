@@ -13,7 +13,7 @@ TEST(TestCaseName, TestName) {
 
 int main()
 {
-	Environment env;
+	Environment env(50000);
 	PlayerA pa(&env, 1, "À±ÁØº´", 500000);
 	PlayerA pb(&env, 2, "¿ÀÅä»ç", 500000);
 
@@ -27,6 +27,6 @@ int main()
 	if (winner != NULL)
 	{
 		//½ÂÀÚ Ãâ·Â
-		cout << winner->getName() << endl;
+		cout <<"½ÂÀÚ´Â " << winner->getName() <<" ÀÔ´Ï´Ù! ÃàÇÏÇÕ´Ï´Ù!!!  Â¦Â¦Â¦Â¦" << endl;
 	}
 }

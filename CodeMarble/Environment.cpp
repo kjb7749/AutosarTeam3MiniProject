@@ -1,11 +1,17 @@
 #include "Environment.h"
 #include <stdlib.h>
 #include "Player.h"
+#include <iostream>
 
-Environment::Environment()
+using namespace std;
+
+Environment::Environment(int subsidy)
 {
+	this->subsidy = subsidy;
+	noOwnerflag = -1;		//랜덤으로 정해져야 한다
 	numberOfPlayer = 0;
 	board = NULL;
+	deadPlayerCount = 0;
 	//도시 데이터 세팅부
 
 	//const char *cityNames[] = { "서울", "도쿄" };
@@ -27,6 +33,11 @@ Environment::Environment()
 Environment::~Environment()
 {
 
+}
+
+int Environment::getSubsidy()
+{
+	return subsidy;
 }
 
 Player* Environment::whosCity(int cityOwnerID)
@@ -76,8 +87,10 @@ bool Environment::playGame()
 	}
 
 	//게임이 끝났을때 false를 반환
-	if (false)
+	if (deadPlayerCount >= (MAX_PLAYER - 1))
+	{
 		return false;
+	}
 	return true;
 }
 
@@ -85,5 +98,47 @@ Player* Environment::getWinner()
 {
 	Player *winner = NULL;
 
+	for (int i = 0; i < MAX_PLAYER; ++i)
+	{
+		if (!players[i]->amIDead())
+		{
+			winner = players[i];
+			break;
+		}
+	}
 	return winner;
+}
+
+
+bool Environment::buyCity(Player *player, int cityIndex, int level)
+{
+	if (player->getMoney() < board[cityIndex]->getPrice(level))
+	{
+		//돈이 부족할때 구매하려한다면
+		return false;
+	}
+	else
+	{
+		player->setMoney(player->getMoney() - board[cityIndex]->getPrice(level));
+		board[cityIndex]->setOwnerID(player->getID());
+		cout << board[cityIndex]->getName() << endl;
+	}
+	return true;
+}
+bool Environment::sellCity(Player *player, int cityIndex)
+{
+	//소유권자가 같아야지만 판매 할 수 있다
+	if (board[cityIndex]->getOwnerID() == player->getID())
+	{
+		//판매가격은 최종가격만 받을 수 있다..패널티임
+		player->setMoney(player->getMoney() + board[cityIndex]->curSellPrice());
+		board[cityIndex]->LevelReset();
+		board[cityIndex]->setOwnerID(noOwnerflag);
+	}
+	return true;
+}
+
+void Environment::oneMorePlayerDead()
+{
+	++deadPlayerCount;
 }

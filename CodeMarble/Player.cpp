@@ -1,6 +1,7 @@
 #include "Player.h"
 #include <stdlib.h>
 #include <iostream>
+#include <cstdarg>
 using namespace std;
 
 
@@ -18,6 +19,11 @@ void Player::setMoney(int money)
 	this->money = money;
 }
 
+int Player::getMoney()
+{
+	return money;
+}
+
 Player::~Player()
 {
 
@@ -28,9 +34,42 @@ int Player::RollDice()
 	return rand() % 6 + 1;
 }
 
+void Player::increaseWarning()
+{
+	++warningCount;
+	if (warningCount > maximumWarningCount)
+	{
+		IamDie();
+	}
+}
+
+int encodeInt(int dst, int size, ...)
+{
+	va_list al;
+	va_start(al, size);
+	for (int i = 0; i < size; ++i)
+	{
+		int n = va_arg(al, int);
+		if (n >= 0 && n < 32)
+		{
+			int bit = 0x00000001 << n;
+			dst |= bit;
+		}			
+	}
+	va_end(al);
+
+	return dst;
+}
+
 void Player::Move(int value)
 {
 	//인덱스를 이동시켜줍니다
+	if ((curIndex + value) >= env->getCityCount())
+	{
+		//한바퀴를 돌았기 때문에 추가금을 지원합니다
+		setMoney(getMoney() + env->getSubsidy());
+		cout << "한바퀴를 돌아서 지원금" << env->getSubsidy() << "을 받았습니다!" << endl;
+	}
 	curIndex = (curIndex + value) % env->getCityCount();
 	//여행한 도시의 정보를 받아옵니다
 	City *pCity = env->getCityWithIndex(curIndex);
@@ -52,11 +91,22 @@ void Player::Move(int value)
 				if ((debt = giveMoneyTo(enterfee, cityOwner)) != 0)
 				{
 					//먼저 SellPlan을 동작시킨다
-					int sellOrderp = SellPlan(*env);
-					//만약 판매후에도 대금 지급이 불가능하면 패배시킨다 그 조건을 넣어야 할듯
-					//모든 경우에 사용자의 아웃풋을 검증하는 과정이 필요하다
-					///검증
-
+					int sellOrder = SellPlan(*env);
+					///유저의 아웃풋 검증
+					//디코딩 후 판매한다
+					//디코딩을 함수로 하지 않는 이유는 함수를 만들기 귀찮아서 이다... 배열 형태로 받는건 효율적이지도 편하지도 않다 그냥 직접 코드에 구현하자
+					for (int i = 0; i < 32; ++i)
+					{
+						int flag = sellOrder & (0x00000001 << i);
+						if (flag > 0)
+						{
+							if (env->sellCity(this, i) == false)
+							{
+								//있지도 않는 도시를 판매하려고 했으므로 경고 카운트를 증기시킨다
+								increaseWarning();
+							}
+						}
+					}
 					//판매전략으로 도시를 판매 했음에도 불구하고 지불하지 못한다면 플레이어는 파산하게 된다
 					if (!giveMoneyTo(debt, cityOwner))
 					{
@@ -65,11 +115,16 @@ void Player::Move(int value)
 				}
 				TravelOtherCity(*env);
 				///검증코드
+				//하지만 아직 의미가 없다
 			}
 		}
 		//연산을 처리합니다
-		int buyOrder = BuyPlan(*env);
+		int buyLevel = BuyPlan(*env);
 		///검증코드
+		if (env->buyCity(this, curIndex, buyLevel) == false)
+		{
+			increaseWarning();
+		}
 	}
 }
 
@@ -77,6 +132,7 @@ void Player::IamDie()
 {
 	//가지고 있는 모든 도시를 초기화 한다
 	deadflag = true;
+	env->oneMorePlayerDead();
 }
 
 bool Player::amIDead()
@@ -104,7 +160,7 @@ void Player::Execute()
 
 	if (diceNumber[0] == diceNumber[1])
 	{
-		//주사위 한번 더 굴리기
+		cout << "더블! 주사위 한번 더 굴리기!" << endl;
 		Execute();
 	}
 }

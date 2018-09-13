@@ -3,6 +3,9 @@
 #include "Environment.h"
 
 
+//어뷰징을 막아야 하니까 인터페이스 형태로 제공해야겠다
+//모든 요소들을 파라미터 인터페이스로!
+
 class Player
 {
 private:
@@ -19,6 +22,7 @@ private:
 public:
 	Player(Environment *env, int id, char *name, int seedMoney);
 	void setMoney(int money);
+	int getMoney();
 
 	virtual ~Player();
 
@@ -41,6 +45,8 @@ public:
 	int getID();
 
 	int giveMoneyTo(int amount, Player *other);
+
+	void increaseWarning();
 
 	//인터페이스, 추후에 인터페이스 매개인자 값에 변동이 필요하다,, env 변수를 통째로 넘겨주는것이 아닌 필요한 것만 추출해서 제공한다 반드시!, 이는 사용자를 위함이다
 public:

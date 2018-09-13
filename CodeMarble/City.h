@@ -2,6 +2,7 @@
 
 class City
 {
+private:
 	//도시의 최종 레벨
 	static const int maxLevel = 4;
 
@@ -19,7 +20,12 @@ public:
 	City(const char* cityName, int price[][4], int sellprice[][4], int benefit[][4]);
 	~City();
 
+	char* getName();
+	int curSellPrice();
+	int getPrice(int level);
 	int getEnterfee();
+	void setOwnerID(int ownerID);
 	int getOwnerID();
 	int LevelUp();
+	void LevelReset();
 };
