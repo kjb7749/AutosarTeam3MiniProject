@@ -34,13 +34,23 @@
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
     <ClInclude Include="City.h" />
+    <ClInclude Include="DataViewer.h" />
     <ClInclude Include="Environment.h" />
+    <ClInclude Include="ICityGetter.h" />
+    <ClInclude Include="ICitySetter.h" />
+    <ClInclude Include="IEnvironmentGetter.h" />
+    <ClInclude Include="IEnvironmentSetter.h" />
+    <ClInclude Include="IPlayerGetter.h" />
+    <ClInclude Include="IPlayerSetter.h" />
+    <ClInclude Include="Logic.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="City.cpp" />
+    <ClCompile Include="DataViewer.cpp" />
     <ClCompile Include="Environment.cpp" />
+    <ClCompile Include="LogicDavid.h" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="pch.cpp">

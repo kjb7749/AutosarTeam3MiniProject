@@ -5,9 +5,8 @@
 
 using namespace std;
 
-Environment::Environment(int subsidy)
+Environment::Environment()
 {
-	this->subsidy = subsidy;
 	noOwnerflag = -1;		//랜덤으로 정해져야 한다
 	numberOfPlayer = 0;
 	board = NULL;
@@ -35,12 +34,17 @@ Environment::~Environment()
 
 }
 
+void Environment::setSubsidy(int subsidy)
+{
+	this->subsidy = subsidy;
+}
+
 int Environment::getSubsidy()
 {
 	return subsidy;
 }
 
-Player* Environment::whosCity(int cityOwnerID)
+IPlayerSetter* Environment::whosCity(int cityOwnerID)
 {
 	for (int i = 0; i < numberOfPlayer; ++i)
 	{
@@ -51,7 +55,7 @@ Player* Environment::whosCity(int cityOwnerID)
 	return NULL;
 }
 
-void Environment::appendUser(Player *p)
+void Environment::appendUser(IPlayerSetter *p)
 {
 	players[numberOfPlayer++] = p;
 }
@@ -61,7 +65,7 @@ int Environment::getCityCount()
 	return cityCount;
 }
 
-City* Environment::getCityWithIndex(int index)
+ICityGetter* Environment::getCityWithIndex(int index)
 {
 	if (index >= cityCount || index < 0)
 		return NULL;
@@ -94,9 +98,9 @@ bool Environment::playGame()
 	return true;
 }
 
-Player* Environment::getWinner()
+IPlayerGetter* Environment::getWinner()
 {
-	Player *winner = NULL;
+	IPlayerGetter *winner = NULL;
 
 	for (int i = 0; i < MAX_PLAYER; ++i)
 	{
@@ -110,7 +114,7 @@ Player* Environment::getWinner()
 }
 
 
-bool Environment::buyCity(Player *player, int cityIndex, int level)
+bool Environment::buyCity(IPlayerSetter *player, int cityIndex, int level)
 {
 	if (player->getMoney() < board[cityIndex]->getPrice(level))
 	{
@@ -125,7 +129,7 @@ bool Environment::buyCity(Player *player, int cityIndex, int level)
 	}
 	return true;
 }
-bool Environment::sellCity(Player *player, int cityIndex)
+bool Environment::sellCity(IPlayerSetter *player, int cityIndex)
 {
 	//소유권자가 같아야지만 판매 할 수 있다
 	if (board[cityIndex]->getOwnerID() == player->getID())

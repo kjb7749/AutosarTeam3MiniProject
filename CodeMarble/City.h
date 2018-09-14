@@ -1,6 +1,7 @@
 #pragma once
+#include "ICitySetter.h"
 
-class City
+class City : virtual public ICityGetter, public ICitySetter
 {
 private:
 	//도시의 최종 레벨
@@ -20,12 +21,13 @@ public:
 	City(const char* cityName, int price[][4], int sellprice[][4], int benefit[][4]);
 	~City();
 
-	char* getName();
-	int curSellPrice();
-	int getPrice(int level);
-	int getEnterfee();
-	void setOwnerID(int ownerID);
-	int getOwnerID();
-	int LevelUp();
-	void LevelReset();
+	virtual char* getName();
+	virtual int curSellPrice();
+	virtual int getPrice(int level);
+	virtual int getEnterfee();
+	virtual int getOwnerID();
+
+	virtual void setOwnerID(int ownerID);
+	virtual int LevelUp();
+	virtual void LevelReset();
 };

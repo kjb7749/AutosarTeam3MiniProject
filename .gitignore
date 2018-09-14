@@ -34,3 +34,7 @@ AutomarbleUML\.uml
 temp/
 
 Debug-Dll/
+
+*.uml
+
+CodeMarble\.~ml

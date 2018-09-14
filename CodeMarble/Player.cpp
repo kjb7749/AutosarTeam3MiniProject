@@ -5,11 +5,12 @@
 using namespace std;
 
 
-Player::Player(Environment *env, int id, char *name, int seedMoney)
+Player::Player(IEnvironmentSetter *env, int id, char *name, int seedMoney)
 {
 	warningCount = 0;
 	curIndex = 0;
 	deadflag = false;
+	money = seedMoney;
 
 	this->env = env;
 }
@@ -72,13 +73,13 @@ void Player::Move(int value)
 	}
 	curIndex = (curIndex + value) % env->getCityCount();
 	//여행한 도시의 정보를 받아옵니다
-	City *pCity = env->getCityWithIndex(curIndex);
+	ICityGetter *pCity = env->getCityWithIndex(curIndex);
 	if (pCity != NULL)
 	{
 		//if (ID != pCity->getOwnerID())		///이 구문이 필요 없다고 생각한 이유는 구매 로직은 어떠한 상황에서건 실행되어야 하기 때문이다
 		{
 			//주인이 있는 도시인지 확인한다
-			Player *cityOwner = env->whosCity(pCity->getOwnerID());
+			IPlayerSetter *cityOwner = env->whosCity(pCity->getOwnerID());
 
 			//만약 주인이 있는 도시라면
 			if (cityOwner != NULL)
@@ -91,7 +92,7 @@ void Player::Move(int value)
 				if ((debt = giveMoneyTo(enterfee, cityOwner)) != 0)
 				{
 					//먼저 SellPlan을 동작시킨다
-					int sellOrder = SellPlan(*env);
+					int sellOrder = logic->SellPlan((DataViewer&)*env);
 					///유저의 아웃풋 검증
 					//디코딩 후 판매한다
 					//디코딩을 함수로 하지 않는 이유는 함수를 만들기 귀찮아서 이다... 배열 형태로 받는건 효율적이지도 편하지도 않다 그냥 직접 코드에 구현하자
@@ -113,19 +114,24 @@ void Player::Move(int value)
 						IamDie();		//나 죽어~
 					}
 				}
-				TravelOtherCity(*env);
+				//logic->TravelOtherCity(*env);
 				///검증코드
 				//하지만 아직 의미가 없다
 			}
 		}
 		//연산을 처리합니다
-		int buyLevel = BuyPlan(*env);
+		int buyLevel = logic->SellPlan((DataViewer&)*env);
 		///검증코드
 		if (env->buyCity(this, curIndex, buyLevel) == false)
 		{
 			increaseWarning();
 		}
 	}
+}
+
+void Player::setLogic(Logic &logic)
+{
+	this->logic = &logic;
 }
 
 void Player::IamDie()
@@ -170,20 +176,20 @@ int Player::getID()
 	return ID;
 }
 
-int Player::giveMoneyTo(int amount, Player *other)
+int Player::giveMoneyTo(int amount, IPlayerSetter *other)
 {
 	if (money - amount < 0)
 	{
 		int remainDebt = amount - money;
 		//전재산을 몰수한다, 하지만 판매가 필요한 특수 상황이다
-		other->money += money;
+		other->setMoney(other->getMoney() + money);
 		money = 0;
 		return remainDebt;
 	}
 	else
 	{
 		money -= amount;
-		other->money += amount;
+		other->setMoney(other->getMoney() + amount);
 		return 0;
 	}
 }

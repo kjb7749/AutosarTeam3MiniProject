@@ -12,6 +12,12 @@
     <ClCompile Include="Player.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="DataViewer.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="LogicDavid.h">
+      <Filter>Headers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -22,6 +28,30 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="City.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Logic.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="DataViewer.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="IPlayerGetter.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="IPlayerSetter.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="IEnvironmentSetter.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="IEnvironmentGetter.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ICityGetter.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ICitySetter.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>
