@@ -12,12 +12,11 @@ class LogicDavid : public Logic
 		PlayerViewer other = view.getPlayers_Other();
 		PlayerViewer me = view.getMe();
 
-		cout << other.size << me.size << endl;
-
+		view.getCities_Mine();
 
 		return 1;
 	}
-	virtual int SellPlan(DataViewer &view)
+	virtual int SellPlan(int debt, DataViewer &view)
 	{
 		int result = 0;
 		//5번을 판매한다

@@ -4,13 +4,14 @@
 #include "City.h"
 #include <iostream>
 #include "tinyxml2.h"
+#include <tchar.h>
 
 using namespace std;
 using namespace tinyxml2;
 
 Environment::Environment()
 {
-	numberOfPlayer = 0;
+	playerCount = 0;
 	board = NULL;
 	deadPlayerCount = 0;
 	cityCount = 0;
@@ -40,7 +41,6 @@ Environment::Environment()
 	int **cityPrices = new int*[cityCount];
 	////레벨별 도시 판매가격 (가장 최종 가격만 반영되어 판매됨)
 	int **citySellPrices = new int*[cityCount];
-
 
 
 	node = rootNode->FirstChildElement("cities")->FirstChildElement("city");
@@ -81,6 +81,7 @@ Environment::Environment()
 		node = node->NextSiblingElement();
 	}
 
+
 	board = new City*[cityCount];
 
 	for (int i = 0; i < cityCount; ++i)
@@ -89,6 +90,18 @@ Environment::Environment()
 	}
 
 	randomNoOwner();
+
+	delete[] cityNames;
+	for (int i = 0; i < cityCount; ++i)
+	{
+		delete[] cityBenefits[i];
+		delete[] cityPrices[i];
+		delete[] citySellPrices[i];
+	}
+	delete[] cityBenefits;
+	delete[] cityPrices;
+	delete[] citySellPrices;
+
 }
 Environment::~Environment()
 {
@@ -102,7 +115,7 @@ int Environment::randomNoOwner()
 	{
 		noOwnerflag = rand();
 		flag = false;
-		for (int i = 0; i < numberOfPlayer; ++i)
+		for (int i = 0; i < playerCount; ++i)
 		{
 			if (players[i]->getID() == noOwnerflag)
 			{
@@ -120,7 +133,7 @@ int Environment::randomNoOwner()
 
 int Environment::getPlayerCount()
 {
-	return numberOfPlayer;
+	return playerCount;
 }
 
 IPlayerGetter * Environment::getCaller()
@@ -142,6 +155,16 @@ IPlayerGetter** Environment::getPlayers()
 {
 	return (IPlayerGetter**)players;
 }
+
+IPlayerGetter* Environment::getPlayer(int ID)
+{
+	for (int i = 0; i < playerCount; ++i)
+	{
+		if (players[i]->getID() == ID)
+			return (IPlayerGetter*)players[i];
+	}
+	return NULL;
+}
 int Environment::getSubsidy()
 {
 	return subsidy;
@@ -149,7 +172,7 @@ int Environment::getSubsidy()
 
 IPlayerSetter* Environment::whosCity(int cityOwnerID)
 {
-	for (int i = 0; i < numberOfPlayer; ++i)
+	for (int i = 0; i < playerCount; ++i)
 	{
 		if (players[i]->getID() == cityOwnerID)
 			return players[i];
@@ -161,7 +184,7 @@ IPlayerSetter* Environment::whosCity(int cityOwnerID)
 //제대로 데이터가 안들어 오는 이유는 아마 인터페이스로 받아서 그런게 아닌가 싶다
 void Environment::appendUser(Player *p)
 {
-	players[numberOfPlayer++] = p;
+	players[playerCount++] = p;
 	randomNoOwner();
 }
 
@@ -170,7 +193,7 @@ int Environment::getCityCount()
 	return cityCount;
 }
 
-ICityGetter* Environment::getCityWithIndex(int index)
+ICityGetter* Environment::getCity(int index)
 {
 	if (index >= cityCount || index < 0)
 		return NULL;
@@ -187,9 +210,14 @@ ICityGetter* Environment::getCityWithIndex(int index)
 	}
 }
 
+ICityGetter** Environment::getCities()
+{
+	return (ICityGetter**)board;
+}
+
 bool Environment::playGame()
 {
-	for (int i = 0; i < numberOfPlayer; ++i)
+	for (int i = 0; i < playerCount; ++i)
 	{
 		if (!players[i]->amIDead())
 			players[i]->Execute();
@@ -211,8 +239,8 @@ IPlayerGetter* Environment::getWinner()
 	{
 		if (!players[i]->amIDead())
 		{
-			winner = players[i];
 			break;
+			winner = players[i];
 		}
 	}
 	return winner;
@@ -224,16 +252,18 @@ bool Environment::buyCity(IPlayerSetter *player, int cityIndex, int level)
 	if (player->getMoney() < board[cityIndex]->getPrice(level))
 	{
 		//돈이 부족할때 구매하려한다면
+		cout << player->getName() << " 돈이 부족한데 도시 " << board[cityIndex]->getName() << "를 구입하려고 하셨습니다." << endl;
 		return false;
 	}
 	else
 	{
 		player->setMoney(player->getMoney() - board[cityIndex]->getPrice(level));
 		board[cityIndex]->setOwnerID(player->getID());
-		cout << board[cityIndex]->getName() << endl;
+		cout << player->getName() << " 도시 " << board[cityIndex]->getName() << "를 구입 하셨습니다." << endl;
 	}
 	return true;
 }
+
 bool Environment::sellCity(IPlayerSetter *player, int cityIndex)
 {
 	//소유권자가 같아야지만 판매 할 수 있다

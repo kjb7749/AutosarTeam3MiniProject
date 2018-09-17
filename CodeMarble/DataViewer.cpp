@@ -2,6 +2,9 @@
 #include "Player.h"
 #include <stdlib.h>
 #include <cstdarg>
+#include <algorithm>
+
+using namespace std;
 
 DataViewer::DataViewer()
 {
@@ -43,10 +46,59 @@ void DataViewer::setEnvironment(IEnvironmentSetter *env)
 ///
 }
 
+
+
+
+/////////////////////////////////////////////////Money/////////////////////////////////////////////////////
 int DataViewer::getMoney_Mine()
 {
 	return env->getCaller()->getMoney();
 }
+
+int DataViewer::getMoney_Other(int ID)
+{
+	return env->getPlayer(ID)->getMoney();
+}
+int DataViewer::getMoney_Maximum()
+{
+	int maxValue = -INT_MAX;
+	IPlayerGetter** players = env->getPlayers();
+	for (int i = 0; i < env->getPlayerCount(); ++i)
+	{
+		maxValue = max(maxValue, players[i]->getMoney());
+	}
+	return maxValue;
+}
+int DataViewer::getMoney_Minimum()
+{
+	int minValue = INT_MAX;
+	IPlayerGetter** players = env->getPlayers();
+	for (int i = 0; i < env->getPlayerCount(); ++i)
+	{
+		minValue = min(minValue, players[i]->getMoney());
+	}
+	return minValue;
+}
+int DataViewer::getMoney_Average()
+{
+	int accumValue = 0;
+	IPlayerGetter** players = env->getPlayers();
+	for (int i = 0; i < env->getPlayerCount(); ++i)
+	{
+		accumValue += players[i]->getMoney();
+	}
+	if (env->getPlayerCount() != 0)
+		return accumValue / env->getPlayerCount();
+	else
+		return 0;
+}
+int DataViewer::getMoney_Median()
+{
+	//정렬문제...는 나중에 자료구조를 아무래도 바꿔야 겠다..
+	return 0;
+}
+
+
 
 PlayerViewer& DataViewer::getMe()
 {
@@ -85,6 +137,95 @@ PlayerViewer& DataViewer::getPlayers_Other()
 		}
 	}
 	return *playerViewer;
+}
+
+PlayerViewer& DataViewer::getPlayer_WithID(int ID)
+{
+	PlayerViewer *playerViewer = &this->playerViewer[playerViewerCount++];
+
+	IPlayerGetter **players = env->getPlayers();
+	playerViewer->size = 0;
+
+	for (int i = 0; i < env->getPlayerCount(); ++i)
+	{
+		int otherid = players[i]->getID();
+		if (ID == otherid)
+		{
+			playerViewer->player[playerViewer->size++] = players[i];
+		}
+	}
+
+	return *playerViewer;
+}
+
+
+CityViewer& DataViewer::getCities_Mine()
+{
+	CityViewer *cityViewer = &this->cityViewer[cityViewerCount++];
+
+	ICityGetter **cities = env->getCities();
+	cityViewer->size = 0;
+
+	for (int i = 0; i < env->getCityCount(); ++i)
+	{
+		int ownerID = cities[i]->getOwnerID();
+		if (env->getCaller()->getID() == ownerID)
+		{
+			cityViewer->cities[cityViewer->size++] = cities[i];
+		}
+	}
+
+	return *cityViewer;
+}
+CityViewer& DataViewer::getCities_All()
+{
+	CityViewer *cityViewer = &this->cityViewer[cityViewerCount++];
+
+	ICityGetter **cities = env->getCities();
+	cityViewer->size = 0;
+
+	for (int i = 0; i < env->getCityCount(); ++i)
+	{
+		cityViewer->cities[cityViewer->size++] = cities[i];
+	}
+
+	return *cityViewer;
+}
+CityViewer& DataViewer::getCities_Others()
+{
+	CityViewer *cityViewer = &this->cityViewer[cityViewerCount++];
+
+	ICityGetter **cities = env->getCities();
+	cityViewer->size = 0;
+
+	for (int i = 0; i < env->getCityCount(); ++i)
+	{
+		int ownerID = cities[i]->getOwnerID();
+		if (env->getCaller()->getID() != ownerID)
+		{
+			cityViewer->cities[cityViewer->size++] = cities[i];
+		}
+	}
+
+	return *cityViewer;
+}
+CityViewer& DataViewer::getCities_Other(int ID)
+{
+	CityViewer *cityViewer = &this->cityViewer[cityViewerCount++];
+
+	ICityGetter **cities = env->getCities();
+	cityViewer->size = 0;
+
+	for (int i = 0; i < env->getCityCount(); ++i)
+	{
+		int ownerID = cities[i]->getOwnerID();
+		if (env->getPlayer(ID)->getID() == ownerID)
+		{
+			cityViewer->cities[cityViewer->size++] = cities[i];
+		}
+	}
+
+	return *cityViewer;
 }
 
 int DataViewer::encodeInt(int dst, int size, ...)

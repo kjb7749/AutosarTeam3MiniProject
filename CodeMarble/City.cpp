@@ -58,7 +58,7 @@ void City::LevelReset()
 	curLevel = 0;
 }
 
-char* City::getName()
+string City::getName()
 {
-	return (char*)cityName.c_str();
+	return cityName;
 }

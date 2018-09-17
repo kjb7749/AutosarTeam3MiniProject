@@ -44,8 +44,10 @@ int Player::RollDice()
 void Player::increaseWarning()
 {
 	++warningCount;
+	cout << getName() << " 경고 " << warningCount <<"회!!" << endl;
 	if (warningCount > maximumWarningCount)
 	{
+		cout << "[※ SYSTEM ※]"<< getName() << " 경고 누적 파산 처리!!!!" << endl;
 		IamDie();
 	}
 }
@@ -57,11 +59,11 @@ void Player::Move(int value)
 	{
 		//한바퀴를 돌았기 때문에 추가금을 지원합니다
 		setMoney(getMoney() + env->getSubsidy());
-		cout << "한바퀴를 돌아서 지원금" << env->getSubsidy() << "을 받았습니다!" << endl;
+		cout << getName() << " 한바퀴를 돌아서 지원금" << env->getSubsidy() << "을 받았습니다!" << endl;
 	}
 	curIndex = (curIndex + value) % env->getCityCount();
 	//여행한 도시의 정보를 받아옵니다
-	ICityGetter *pCity = env->getCityWithIndex(curIndex);
+	ICityGetter *pCity = env->getCity(curIndex);
 	if (pCity != NULL)
 	{
 		//if (ID != pCity->getOwnerID())		///이 구문이 필요 없다고 생각한 이유는 구매 로직은 어떠한 상황에서건 실행되어야 하기 때문이다
@@ -82,7 +84,7 @@ void Player::Move(int value)
 				{
 					//먼저 SellPlan을 동작시킨다
 					viewer.ClearMemory();
-					int sellOrder = logic->SellPlan(viewer);
+					int sellOrder = logic->SellPlan(debt, viewer);
 					///유저의 아웃풋 검증
 					//디코딩 후 판매한다
 					//디코딩을 함수로 하지 않는 이유는 함수를 만들기 귀찮아서 이다... 배열 형태로 받는건 효율적이지도 편하지도 않다 그냥 직접 코드에 구현하자

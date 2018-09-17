@@ -1,7 +1,7 @@
 #pragma once
 #include "ICityGetter.h"
 
-class ICitySetter : virtual public ICityGetter
+class ICitySetter : public ICityGetter
 {
 public:
 	ICitySetter() {}

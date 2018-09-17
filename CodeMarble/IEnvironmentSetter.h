@@ -2,7 +2,7 @@
 #include "IEnvironmentGetter.h"
 #include "IPlayerSetter.h"
 
-class IEnvironmentSetter : virtual public IEnvironmentGetter
+class IEnvironmentSetter : public IEnvironmentGetter
 {
 public:
 	IEnvironmentSetter()
@@ -16,6 +16,5 @@ public:
 
 	virtual void setCaller(IPlayerSetter *caller) = 0;
 	virtual void setSubsidy(int subsidy) = 0;
-	//virtual void appendUser(Player *p) = 0;
 	virtual void oneMorePlayerDead() = 0;
 };

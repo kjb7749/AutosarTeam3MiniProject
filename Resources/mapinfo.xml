@@ -2,27 +2,194 @@
 
 <map>
 	<mapName>월드맵</mapName>
-	<tileCount>14</tileCount>
 	<cities>
 		<city>
 			<cityName>서울</cityName>
-			<cityBenefit   a="10" b="20" c="30" d="40" />
-			<cityBuyPrice a="10" b="20" c="30" d="40" />
-			<citySellPrice a="10" b="20" c="30" d="40" />
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
 			<cityInfo>한국의 심장, 수도</cityInfo>
 		</city>
 		<city>
 			<cityName>뉴욕</cityName>
-			<cityBenefit   a="10" b="20" c="30" d="40" />
-			<cityBuyPrice a="10" b="20" c="30" d="40" />
-			<citySellPrice a="10" b="20" c="30" d="40" />
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
 			<cityInfo>미국 금융의 중심</cityInfo>
 		</city>
 		<city>
 			<cityName>도쿄</cityName>
-			<cityBenefit   a="20" b="30" c="50" d="10" />
-			<cityBuyPrice a="20" b="30" c="20" d="10" />
-			<citySellPrice a="20" b="30" c="10" d="10" />
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>메트로 폴리탄, 일본의 가장 큰 도시</cityInfo>
+		</city>
+				<city>
+			<cityName>서울</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>한국의 심장, 수도</cityInfo>
+		</city>
+		<city>
+			<cityName>뉴욕</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>미국 금융의 중심</cityInfo>
+		</city>
+		<city>
+			<cityName>도쿄</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>메트로 폴리탄, 일본의 가장 큰 도시</cityInfo>
+		</city>
+				<city>
+			<cityName>서울</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>한국의 심장, 수도</cityInfo>
+		</city>
+		<city>
+			<cityName>뉴욕</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>미국 금융의 중심</cityInfo>
+		</city>
+		<city>
+			<cityName>도쿄</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>메트로 폴리탄, 일본의 가장 큰 도시</cityInfo>
+		</city>
+				<city>
+			<cityName>서울</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>한국의 심장, 수도</cityInfo>
+		</city>
+		<city>
+			<cityName>뉴욕</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>미국 금융의 중심</cityInfo>
+		</city>
+		<city>
+			<cityName>도쿄</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>메트로 폴리탄, 일본의 가장 큰 도시</cityInfo>
+		</city>
+				<city>
+			<cityName>서울</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>한국의 심장, 수도</cityInfo>
+		</city>
+		<city>
+			<cityName>뉴욕</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>미국 금융의 중심</cityInfo>
+		</city>
+		<city>
+			<cityName>도쿄</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>메트로 폴리탄, 일본의 가장 큰 도시</cityInfo>
+		</city>
+				<city>
+			<cityName>서울</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>한국의 심장, 수도</cityInfo>
+		</city>
+		<city>
+			<cityName>뉴욕</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>미국 금융의 중심</cityInfo>
+		</city>
+		<city>
+			<cityName>도쿄</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>메트로 폴리탄, 일본의 가장 큰 도시</cityInfo>
+		</city>
+				<city>
+			<cityName>서울</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>한국의 심장, 수도</cityInfo>
+		</city>
+		<city>
+			<cityName>뉴욕</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>미국 금융의 중심</cityInfo>
+		</city>
+		<city>
+			<cityName>도쿄</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>메트로 폴리탄, 일본의 가장 큰 도시</cityInfo>
+		</city>
+				<city>
+			<cityName>서울</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>한국의 심장, 수도</cityInfo>
+		</city>
+		<city>
+			<cityName>뉴욕</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>미국 금융의 중심</cityInfo>
+		</city>
+		<city>
+			<cityName>도쿄</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>메트로 폴리탄, 일본의 가장 큰 도시</cityInfo>
+		</city>
+				<city>
+			<cityName>서울</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>한국의 심장, 수도</cityInfo>
+		</city>
+		<city>
+			<cityName>뉴욕</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
+			<cityInfo>미국 금융의 중심</cityInfo>
+		</city>
+		<city>
+			<cityName>도쿄</cityName>
+			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
 			<cityInfo>메트로 폴리탄, 일본의 가장 큰 도시</cityInfo>
 		</city>
 	</cities>

@@ -8,6 +8,6 @@ public:
 	Logic() {}
 	virtual ~Logic() {}
 	virtual int BuyPlan(DataViewer &view) = 0;
-	virtual int SellPlan(DataViewer &view) = 0;
+	virtual int SellPlan(int debt, DataViewer &view) = 0;
 	virtual int TravelOtherCity(DataViewer &view) = 0;
 };

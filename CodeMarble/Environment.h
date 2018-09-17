@@ -12,7 +12,7 @@ private:
 	int noOwnerflag;
 
 	Player **players;
-	int numberOfPlayer;
+	int playerCount;
 	int deadPlayerCount;
 
 	int cityCount;
@@ -28,12 +28,14 @@ public:
 	virtual int getPlayerCount();
 	virtual int getSubsidy();
 	virtual IPlayerSetter *whosCity(int cityOwnerID);
-	virtual ICityGetter* getCityWithIndex(int index);
+	virtual ICityGetter** getCities();
+	virtual ICityGetter* getCity(int index);
 	virtual bool buyCity(IPlayerSetter *player, int cityIndex, int level);
 	virtual bool sellCity(IPlayerSetter *player, int cityIndex);
 
 	virtual void setCaller(IPlayerSetter *caller);
 	virtual IPlayerGetter** getPlayers();
+	virtual IPlayerGetter* getPlayer(int ID);
 	virtual void setSubsidy(int subsidy);
 	virtual void oneMorePlayerDead();
 	

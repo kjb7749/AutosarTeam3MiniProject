@@ -24,7 +24,7 @@ public:
 	City(string cityName, int price[], int sellprice[], int benefit[]);
 	~City();
 
-	virtual char* getName();
+	virtual string getName();
 	virtual int curSellPrice();
 	virtual int getPrice(int level);
 	virtual int getEnterfee();
