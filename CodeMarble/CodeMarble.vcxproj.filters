@@ -18,6 +18,9 @@
     <ClCompile Include="LogicDavid.h">
       <Filter>Headers</Filter>
     </ClCompile>
+    <ClCompile Include="tinyxml2.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -52,6 +55,9 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="ICitySetter.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml2.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

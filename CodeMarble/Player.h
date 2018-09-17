@@ -1,15 +1,12 @@
 #pragma once
-#include "City.h"
-#include "Environment.h"
 #include "Logic.h"
-#include "IPlayerGetter.h"
 #include "IPlayerSetter.h"
 #include "IEnvironmentSetter.h"
 
 
 //게터는 단순 정보 접근 기능만
 //세터는 정보 접근 이상의 콘크리트 객체 정보의 변화를 초래하는 기능들을 담당한다
-class Player : virtual public IPlayerGetter, public IPlayerSetter
+class Player : public IPlayerSetter
 {
 private:
 	//플레이어가 의도적으로 정상적이지 않은 처리를 보낼때 이를 경고하고 특정이상 경고를 받았을 경우 사망처리 하기 위한 값
@@ -20,6 +17,7 @@ private:
 	int ID;
 	int curIndex;
 	IEnvironmentSetter *env;
+	DataViewer viewer;
 	int money;
 	Logic *logic;
 

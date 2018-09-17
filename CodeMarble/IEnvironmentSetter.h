@@ -14,7 +14,8 @@ public:
 
 	}
 
+	virtual void setCaller(IPlayerSetter *caller) = 0;
 	virtual void setSubsidy(int subsidy) = 0;
-	virtual void appendUser(IPlayerSetter *p) = 0;
+	//virtual void appendUser(Player *p) = 0;
 	virtual void oneMorePlayerDead() = 0;
 };

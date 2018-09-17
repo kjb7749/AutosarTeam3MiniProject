@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<map>
+	<mapName>월드맵</mapName>
+	<tileCount>14</tileCount>
+	<cities>
+		<city>
+			<cityName>서울</cityName>
+			<cityBenefit   a="10" b="20" c="30" d="40" />
+			<cityInfo>한국의 심장, 수도</cityInfo>
+		</city>
+	</cities>
+</map>

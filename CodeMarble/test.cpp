@@ -17,23 +17,22 @@ int main()
 	Environment env;
 	Player pa(&env, 1, "윤준병", 500000);
 	Player pb(&env, 2, "오토사", 500000);
+	Player pc(&env, 3, "김경호", 500000);
+	Player pd(&env, 4, "우명", 500000);
 
 	LogicDavid logic;
 
 	env.setSubsidy(5000);
 
-	//IPlayerGetter *testgetter = &pa;
-	//IPlayerSetter *testsetter = &pa;
-
-	//std::cout<<testgetter->getMoney();
-	//testsetter->setMoney(100);
-	//std::cout << testgetter->getMoney();
-
 	pa.setLogic(logic);
 	pb.setLogic(logic);
+	pc.setLogic(logic);
+	pd.setLogic(logic);
 
 	env.appendUser(&pa);
 	env.appendUser(&pb);
+	env.appendUser(&pc);
+	env.appendUser(&pd);
 
 	//초기 cityowner id값은 겹치지 않는 랜덤한 플레이어 id 값으로 설정해야 한다 한번만
 

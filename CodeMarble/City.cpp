@@ -1,22 +1,23 @@
 #include "City.h"
 #include <string>
 
-City::City(const char* cityName, int price[][4], int sellprice[][4], int benefit[][4])
+City::City(string cityName, int price[], int sellprice[], int benefit[])
 {
 	curLevel = 0;
-	this->cityName = new char[strlen(cityName) + 1];
-	strcpy_s(this->cityName, sizeof(char) * strlen(cityName), cityName);
+	//this->cityName = new char[strlen(cityName) + 1];
+	//strcpy(this->cityName, cityName);
+	this->cityName = cityName;
 
-	////for(int j = 0; j < )
-	//for (int i = 0; i < 4; ++i)
-	//{
-	//	this->benefit[i] = benefit[i][];
-	//	this->price[i] = price[i];
-	//}
+	for (int i = 0; i < 4; ++i)
+	{
+		this->benefit[i] = benefit[i];
+		this->buyPrice[i] = price[i];
+		this->sellPrice[i] = sellprice[i];
+	}
 }
 City::~City()
 {
-	delete this->cityName;
+
 }
 
 void City::setOwnerID(int ownerID)
@@ -59,5 +60,5 @@ void City::LevelReset()
 
 char* City::getName()
 {
-	return cityName;
+	return (char*)cityName.c_str();
 }

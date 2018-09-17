@@ -1,17 +1,23 @@
 #include "Player.h"
 #include <stdlib.h>
 #include <iostream>
-#include <cstdarg>
 using namespace std;
 
 
 Player::Player(IEnvironmentSetter *env, int id, char *name, int seedMoney)
 {
+	viewer.setEnvironment(env);
 	warningCount = 0;
 	curIndex = 0;
 	deadflag = false;
-	money = seedMoney;
 
+
+	this->name = new char[sizeof(char)*strlen(name)+1];
+	memset(this->name, NULL, strlen(name+1));
+	strcpy(this->name, name);
+
+	this->money = seedMoney;
+	this->ID = id;
 	this->env = env;
 }
 
@@ -44,24 +50,6 @@ void Player::increaseWarning()
 	}
 }
 
-int encodeInt(int dst, int size, ...)
-{
-	va_list al;
-	va_start(al, size);
-	for (int i = 0; i < size; ++i)
-	{
-		int n = va_arg(al, int);
-		if (n >= 0 && n < 32)
-		{
-			int bit = 0x00000001 << n;
-			dst |= bit;
-		}			
-	}
-	va_end(al);
-
-	return dst;
-}
-
 void Player::Move(int value)
 {
 	//인덱스를 이동시켜줍니다
@@ -79,6 +67,7 @@ void Player::Move(int value)
 		//if (ID != pCity->getOwnerID())		///이 구문이 필요 없다고 생각한 이유는 구매 로직은 어떠한 상황에서건 실행되어야 하기 때문이다
 		{
 			//주인이 있는 도시인지 확인한다
+			env->setCaller(this);
 			IPlayerSetter *cityOwner = env->whosCity(pCity->getOwnerID());
 
 			//만약 주인이 있는 도시라면
@@ -92,7 +81,8 @@ void Player::Move(int value)
 				if ((debt = giveMoneyTo(enterfee, cityOwner)) != 0)
 				{
 					//먼저 SellPlan을 동작시킨다
-					int sellOrder = logic->SellPlan((DataViewer&)*env);
+					viewer.ClearMemory();
+					int sellOrder = logic->SellPlan(viewer);
 					///유저의 아웃풋 검증
 					//디코딩 후 판매한다
 					//디코딩을 함수로 하지 않는 이유는 함수를 만들기 귀찮아서 이다... 배열 형태로 받는건 효율적이지도 편하지도 않다 그냥 직접 코드에 구현하자
@@ -114,13 +104,16 @@ void Player::Move(int value)
 						IamDie();		//나 죽어~
 					}
 				}
-				//logic->TravelOtherCity(*env);
+				//viewer.ClearMemory();
+				//logic->TravelOtherCity(viewer);
 				///검증코드
 				//하지만 아직 의미가 없다
 			}
 		}
 		//연산을 처리합니다
-		int buyLevel = logic->SellPlan((DataViewer&)*env);
+		env->setCaller(this);
+		viewer.ClearMemory();
+		int buyLevel = logic->BuyPlan(viewer);
 		///검증코드
 		if (env->buyCity(this, curIndex, buyLevel) == false)
 		{

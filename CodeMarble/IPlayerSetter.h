@@ -1,7 +1,7 @@
 #pragma once
 #include "IPlayerGetter.h"
 
-class IPlayerSetter : virtual public IPlayerGetter
+class IPlayerSetter : public IPlayerGetter
 {
 public:
 	IPlayerSetter()
@@ -18,6 +18,6 @@ public:
 	virtual void Move(int value) = 0;
 	virtual void IamDie() = 0;
 	virtual void Execute() = 0;
-	virtual int giveMoneyTo(int amount, IPlayerSetter *other) = 0;
 	virtual void increaseWarning() = 0;
+	virtual int giveMoneyTo(int amount, IPlayerSetter *other) = 0;
 };
