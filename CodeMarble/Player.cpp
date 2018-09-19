@@ -64,7 +64,7 @@ void Player::Move(int value)
 	curIndex = (curIndex + value) % env->getCityCount();
 	//여행한 도시의 정보를 받아옵니다
 	ICityGetter *pCity = env->getCity(curIndex);
-	if (pCity != NULL)
+	if (pCity != nullptr)
 	{
 		//if (ID != pCity->getOwnerID())		///이 구문이 필요 없다고 생각한 이유는 구매 로직은 어떠한 상황에서건 실행되어야 하기 때문이다
 		{
@@ -73,7 +73,7 @@ void Player::Move(int value)
 			IPlayerSetter *cityOwner = env->whosCity(pCity->getOwnerID());
 
 			//만약 주인이 있는 도시라면
-			if (cityOwner != NULL)
+			if (cityOwner != nullptr)
 			{
 				//통행료를 계산한다
 				int enterfee = pCity->getEnterfee();

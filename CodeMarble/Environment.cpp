@@ -12,7 +12,7 @@ using namespace tinyxml2;
 Environment::Environment()
 {
 	playerCount = 0;
-	board = NULL;
+	board = nullptr;
 	deadPlayerCount = 0;
 	cityCount = 0;
 
@@ -26,7 +26,7 @@ Environment::Environment()
 	XMLElement* rootNode = readDoc.FirstChildElement();
 	XMLElement* node = rootNode->FirstChildElement("cities")->FirstChildElement("city");
 
-	while (node != NULL)
+	while (node != nullptr)
 	{
 		++cityCount;
 		node = node->NextSiblingElement();
@@ -46,7 +46,7 @@ Environment::Environment()
 	node = rootNode->FirstChildElement("cities")->FirstChildElement("city");
 	int indexForCount = 0;
 
-	while (node != NULL)
+	while (node != nullptr)
 	{
 		cityNames[indexForCount] = node->FirstChildElement("cityName")->GetText();
 		int localIndex;
@@ -163,7 +163,7 @@ IPlayerGetter* Environment::getPlayer(int ID)
 		if (players[i]->getID() == ID)
 			return (IPlayerGetter*)players[i];
 	}
-	return NULL;
+	return nullptr;
 }
 int Environment::getSubsidy()
 {
@@ -178,7 +178,7 @@ IPlayerSetter* Environment::whosCity(int cityOwnerID)
 			return players[i];
 	}
 
-	return NULL;
+	return nullptr;
 }
 
 //제대로 데이터가 안들어 오는 이유는 아마 인터페이스로 받아서 그런게 아닌가 싶다
@@ -196,17 +196,17 @@ int Environment::getCityCount()
 ICityGetter* Environment::getCity(int index)
 {
 	if (index >= cityCount || index < 0)
-		return NULL;
+		return nullptr;
 	else
 	{
-		if (board != NULL)
+		if (board != nullptr)
 		{
-			if (board[index] != NULL)
+			if (board[index] != nullptr)
 				return board[index];
 			else
-				return NULL;
+				return nullptr;
 		}
-		return NULL;
+		return nullptr;
 	}
 }
 
@@ -233,7 +233,7 @@ bool Environment::playGame()
 
 IPlayerGetter* Environment::getWinner()
 {
-	IPlayerGetter *winner = NULL;
+	IPlayerGetter *winner = nullptr;
 
 	for (int i = 0; i < MAX_PLAYER; ++i)
 	{

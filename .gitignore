@@ -38,3 +38,5 @@ Debug-Dll/
 *.uml
 
 CodeMarble\.~ml
+
+bin/

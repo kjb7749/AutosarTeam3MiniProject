@@ -16,6 +16,7 @@ int main()
 {
 	srand(time(NULL));
 
+
 	Environment env;
 	Player pa(&env, 1, "À±ÁØº´", 200000);
 	Player pb(&env, 2, "±è¹ÎÃ¤", 200000);
@@ -42,4 +43,6 @@ int main()
 		//½ÂÀÚ Ãâ·Â
 		cout <<"½ÂÀÚ´Â " << winner->getName() <<" ÀÔ´Ï´Ù! ÃàÇÏÇÕ´Ï´Ù!!!  Â¦Â¦Â¦Â¦" << endl;
 	}
+
+	return 0;
 }
