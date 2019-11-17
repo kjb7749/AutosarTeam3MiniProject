@@ -7,17 +7,17 @@ using namespace std;
 class City : public ICitySetter
 {
 private:
-	//µµ½ÃÀÇ ÃÖÁ¾ ·¹º§
+	//ë„ì‹œì˜ ìµœì¢… ë ˆë²¨
 	static const int maxLevel = 4;
 
 	int ownerID;
 	int curLevel;
 	string cityName;
-	//´Ù¸¥ À¯Àú°¡ Å¸ÀÏÀ» ¹â¾ÒÀ»¶§ ¾òÀ» ¼ö ÀÖ´Â ¼öÀÍ 
+	//ë‹¤ë¥¸ ìœ ì €ê°€ íƒ€ì¼ì„ ë°Ÿì•˜ì„ë•Œ ì–»ì„ ìˆ˜ ìˆëŠ” ìˆ˜ìµ 
 	int benefit[maxLevel];
-	//Å¸ÀÏÀÇ ±¸¸Å&¾÷±×·¹ÀÌµå °¡°İ
+	//íƒ€ì¼ì˜ êµ¬ë§¤&ì—…ê·¸ë ˆì´ë“œ ê°€ê²©
 	int buyPrice[maxLevel];
-	//Å¸ÀÏÀÇ ·¹º§º° ÆÇ¸Å °¡°İ
+	//íƒ€ì¼ì˜ ë ˆë²¨ë³„ íŒë§¤ ê°€ê²©
 	int sellPrice[maxLevel];
 
 public:

@@ -1,196 +1,189 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="euc-kr"?>
 
 <map>
-	<mapName>월드맵</mapName>
-	<cities>
-		<city>
-			<cityName>서울</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>한국의 심장, 수도</cityInfo>
-		</city>
-		<city>
-			<cityName>뉴욕</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>미국 금융의 중심</cityInfo>
-		</city>
-		<city>
-			<cityName>도쿄</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>메트로 폴리탄, 일본의 가장 큰 도시</cityInfo>
-		</city>
-				<city>
-			<cityName>서울</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>한국의 심장, 수도</cityInfo>
-		</city>
-		<city>
-			<cityName>뉴욕</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>미국 금융의 중심</cityInfo>
-		</city>
-		<city>
-			<cityName>도쿄</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>메트로 폴리탄, 일본의 가장 큰 도시</cityInfo>
-		</city>
-				<city>
-			<cityName>서울</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>한국의 심장, 수도</cityInfo>
-		</city>
-		<city>
-			<cityName>뉴욕</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>미국 금융의 중심</cityInfo>
-		</city>
-		<city>
-			<cityName>도쿄</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>메트로 폴리탄, 일본의 가장 큰 도시</cityInfo>
-		</city>
-				<city>
-			<cityName>서울</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>한국의 심장, 수도</cityInfo>
-		</city>
-		<city>
-			<cityName>뉴욕</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>미국 금융의 중심</cityInfo>
-		</city>
-		<city>
-			<cityName>도쿄</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>메트로 폴리탄, 일본의 가장 큰 도시</cityInfo>
-		</city>
-				<city>
-			<cityName>서울</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>한국의 심장, 수도</cityInfo>
-		</city>
-		<city>
-			<cityName>뉴욕</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>미국 금융의 중심</cityInfo>
-		</city>
-		<city>
-			<cityName>도쿄</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>메트로 폴리탄, 일본의 가장 큰 도시</cityInfo>
-		</city>
-				<city>
-			<cityName>서울</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>한국의 심장, 수도</cityInfo>
-		</city>
-		<city>
-			<cityName>뉴욕</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>미국 금융의 중심</cityInfo>
-		</city>
-		<city>
-			<cityName>도쿄</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>메트로 폴리탄, 일본의 가장 큰 도시</cityInfo>
-		</city>
-				<city>
-			<cityName>서울</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>한국의 심장, 수도</cityInfo>
-		</city>
-		<city>
-			<cityName>뉴욕</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>미국 금융의 중심</cityInfo>
-		</city>
-		<city>
-			<cityName>도쿄</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>메트로 폴리탄, 일본의 가장 큰 도시</cityInfo>
-		</city>
-				<city>
-			<cityName>서울</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>한국의 심장, 수도</cityInfo>
-		</city>
-		<city>
-			<cityName>뉴욕</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>미국 금융의 중심</cityInfo>
-		</city>
-		<city>
-			<cityName>도쿄</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>메트로 폴리탄, 일본의 가장 큰 도시</cityInfo>
-		</city>
-				<city>
-			<cityName>서울</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>한국의 심장, 수도</cityInfo>
-		</city>
-		<city>
-			<cityName>뉴욕</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>미국 금융의 중심</cityInfo>
-		</city>
-		<city>
-			<cityName>도쿄</cityName>
-			<cityBenefit   a="5000" b="10000" c="15000" d="20000" />
-			<cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
-			<citySellPrice a="10000" b="20000" c="30000" d="40000" />
-			<cityInfo>메트로 폴리탄, 일본의 가장 큰 도시</cityInfo>
-		</city>
-	</cities>
+  <mapName>????��?</mapName>
+    <cities>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+      <city>
+        <cityName>����</cityName>
+        <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
+        <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
+        <citySellPrice a="10000" b="20000" c="30000" d="40000" />
+        <cityInfo>����</cityInfo>
+      </city>
+    </cities>
 </map>

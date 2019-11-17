@@ -19,7 +19,7 @@ class LogicDavid : public Logic
 	virtual int SellPlan(int debt, DataViewer &view)
 	{
 		int result = 0;
-		//5¹øÀ» ÆÇ¸ÅÇÑ´Ù
+		//5ë²ˆì„ íŒë§¤í•œë‹¤
 
 		result = view.encodeInt(result, 1, 5);
 		return result;

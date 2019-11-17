@@ -1,4 +1,4 @@
-#include "Environment.h"
+Ôªø#include "Environment.h"
 #include <stdlib.h>
 #include "Player.h"
 #include "City.h"
@@ -9,7 +9,9 @@
 using namespace std;
 using namespace tinyxml2;
 
-Environment::Environment()
+
+
+Environment::Environment(std::string path)
 {
 	playerCount = 0;
 	board = nullptr;
@@ -17,91 +19,98 @@ Environment::Environment()
 	cityCount = 0;
 
 
-	//¿œ¥‹ ¿”Ω√∑Œ 8¿⁄∏Æ ∏∏µÈæÓ ≥ı¿∫∞Õ.. ≥™¡ﬂø° µø¿˚¿∏∑Œ ∫Ø∞Ê«ÿæﬂ«‘
+	//ÏùºÎã® ÏûÑÏãúÎ°ú 8ÏûêÎ¶¨ ÎßåÎì§Ïñ¥ ÎÜìÏùÄÍ≤É.. ÎÇòÏ§ëÏóê ÎèôÏ†ÅÏúºÎ°ú Î≥ÄÍ≤ΩÌï¥ÏïºÌï®
 	players = new Player*[8];
 
 	XMLDocument readDoc;
 
-	readDoc.LoadFile("D:/Projects/AutosarTeam3MiniProject/Resources/mapinfo.xml");
-	XMLElement* rootNode = readDoc.FirstChildElement();
-	XMLElement* node = rootNode->FirstChildElement("cities")->FirstChildElement("city");
-
-	while (node != nullptr)
+	readDoc.LoadFile(path.c_str());
+	if (readDoc.Error() == false)
 	{
-		++cityCount;
-		node = node->NextSiblingElement();
-	}
+		XMLElement* rootNode = readDoc.FirstChildElement();
+		XMLElement* node = rootNode->FirstChildElement("cities")->FirstChildElement("city");
 
-
-	//µµΩ√ µ•¿Ã≈Õ ºº∆√∫Œ
-	string *cityNames = new string[cityCount];
-	////∑π∫ß∫∞ µµΩ√∏¶ π·¿Ω¿∏∑Œ æÚ¥¬ ¿Ã¿Õ
-	int **cityBenefits = new int*[cityCount];
-	////∑π∫ß∫∞ µµΩ√ ±∏∏≈ ∫ÒøÎ
-	int **cityPrices = new int*[cityCount];
-	////∑π∫ß∫∞ µµΩ√ ∆«∏≈∞°∞› (∞°¿Â √÷¡æ ∞°∞›∏∏ π›øµµ«æÓ ∆«∏≈µ )
-	int **citySellPrices = new int*[cityCount];
-
-
-	node = rootNode->FirstChildElement("cities")->FirstChildElement("city");
-	int indexForCount = 0;
-
-	while (node != nullptr)
-	{
-		cityNames[indexForCount] = node->FirstChildElement("cityName")->GetText();
-		int localIndex;
-
-		cityBenefits[indexForCount] = new int[4];
-		localIndex = 0;
-		const XMLAttribute* atrb = node->FirstChildElement("cityBenefit")->FirstAttribute();
-		do
+		while (node != nullptr)
 		{
-			cityBenefits[indexForCount][localIndex++] = atoi(atrb->Value());
-		} while (atrb = atrb->Next());
+			++cityCount;
+			node = node->NextSiblingElement();
+		}
 
-		////////////////////////////
-		cityPrices[indexForCount] = new int[4];
-		localIndex = 0;
-		atrb = node->FirstChildElement("cityBuyPrice")->FirstAttribute();
-		do
+
+		//ÎèÑÏãú Îç∞Ïù¥ÌÑ∞ ÏÑ∏ÌåÖÎ∂Ä
+		string *cityNames = new string[cityCount];
+		////Î†àÎ≤®Î≥Ñ ÎèÑÏãúÎ•º Î∞ûÏùåÏúºÎ°ú ÏñªÎäî Ïù¥Ïùµ
+		int **cityBenefits = new int*[cityCount];
+		////Î†àÎ≤®Î≥Ñ ÎèÑÏãú Íµ¨Îß§ ÎπÑÏö©
+		int **cityPrices = new int*[cityCount];
+		////Î†àÎ≤®Î≥Ñ ÎèÑÏãú ÌåêÎß§Í∞ÄÍ≤© (Í∞ÄÏû• ÏµúÏ¢Ö Í∞ÄÍ≤©Îßå Î∞òÏòÅÎêòÏñ¥ ÌåêÎß§Îê®)
+		int **citySellPrices = new int*[cityCount];
+
+
+		node = rootNode->FirstChildElement("cities")->FirstChildElement("city");
+		int indexForCount = 0;
+
+		while (node != nullptr)
 		{
-			cityPrices[indexForCount][localIndex++] = atoi(atrb->Value());
-		} while (atrb = atrb->Next());
+			cityNames[indexForCount] = node->FirstChildElement("cityName")->GetText();
+			int localIndex;
 
-		//////////////////////////////////
-		citySellPrices[indexForCount] = new int[4];
-		localIndex = 0;
-		atrb = node->FirstChildElement("citySellPrice")->FirstAttribute();
-		do
+			cityBenefits[indexForCount] = new int[4];
+			localIndex = 0;
+			const XMLAttribute* atrb = node->FirstChildElement("cityBenefit")->FirstAttribute();
+			do
+			{
+				cityBenefits[indexForCount][localIndex++] = atoi(atrb->Value());
+			} while (atrb = atrb->Next());
+
+			////////////////////////////
+			cityPrices[indexForCount] = new int[4];
+			localIndex = 0;
+			atrb = node->FirstChildElement("cityBuyPrice")->FirstAttribute();
+			do
+			{
+				cityPrices[indexForCount][localIndex++] = atoi(atrb->Value());
+			} while (atrb = atrb->Next());
+
+			//////////////////////////////////
+			citySellPrices[indexForCount] = new int[4];
+			localIndex = 0;
+			atrb = node->FirstChildElement("citySellPrice")->FirstAttribute();
+			do
+			{
+				citySellPrices[indexForCount][localIndex++] = atoi(atrb->Value());
+			} while (atrb = atrb->Next());
+
+			++indexForCount;
+			node = node->NextSiblingElement();
+		}
+
+
+		board = new City*[cityCount];
+
+		for (int i = 0; i < cityCount; ++i)
 		{
-			citySellPrices[indexForCount][localIndex++] = atoi(atrb->Value());
-		} while (atrb = atrb->Next());
+			board[i] = new City(cityNames[i], cityPrices[i], citySellPrices[i], cityBenefits[i]);
+		}
 
-		++indexForCount;
-		node = node->NextSiblingElement();
+		randomNoOwner();
+
+		delete[] cityNames;
+		for (int i = 0; i < cityCount; ++i)
+		{
+			delete[] cityBenefits[i];
+			delete[] cityPrices[i];
+			delete[] citySellPrices[i];
+		}
+		delete[] cityBenefits;
+		delete[] cityPrices;
+		delete[] citySellPrices;
+
 	}
-
-
-	board = new City*[cityCount];
-
-	for (int i = 0; i < cityCount; ++i)
+	else
 	{
-		board[i] = new City(cityNames[i], cityPrices[i], citySellPrices[i], cityBenefits[i]);
+		cout << "ÏóêÎü¨" << endl;
 	}
-
-	randomNoOwner();
-
-	delete[] cityNames;
-	for (int i = 0; i < cityCount; ++i)
-	{
-		delete[] cityBenefits[i];
-		delete[] cityPrices[i];
-		delete[] citySellPrices[i];
-	}
-	delete[] cityBenefits;
-	delete[] cityPrices;
-	delete[] citySellPrices;
-
 }
 Environment::~Environment()
 {
@@ -111,7 +120,7 @@ Environment::~Environment()
 int Environment::randomNoOwner()
 {
 	bool flag = false;
-	do		//∑£¥˝¿∏∑Œ ¡§«ÿ¡Ææﬂ «—¥Ÿ
+	do		//ÎûúÎç§ÏúºÎ°ú Ï†ïÌï¥Ï†∏Ïïº ÌïúÎã§
 	{
 		noOwnerflag = rand();
 		flag = false;
@@ -181,7 +190,7 @@ IPlayerSetter* Environment::whosCity(int cityOwnerID)
 	return nullptr;
 }
 
-//¡¶¥Î∑Œ µ•¿Ã≈Õ∞° æ»µÈæÓ ø¿¥¬ ¿Ã¿Ø¥¬ æ∆∏∂ ¿Œ≈Õ∆‰¿ÃΩ∫∑Œ πﬁæ∆º≠ ±◊∑±∞‘ æ∆¥—∞° ΩÕ¥Ÿ
+//Ï†úÎåÄÎ°ú Îç∞Ïù¥ÌÑ∞Í∞Ä ÏïàÎì§Ïñ¥ Ïò§Îäî Ïù¥Ïú†Îäî ÏïÑÎßà Ïù∏ÌÑ∞ÌéòÏù¥Ïä§Î°ú Î∞õÏïÑÏÑú Í∑∏Îü∞Í≤å ÏïÑÎãåÍ∞Ä Ïã∂Îã§
 void Environment::appendUser(Player *p)
 {
 	players[playerCount++] = p;
@@ -223,7 +232,7 @@ bool Environment::playGame()
 			players[i]->Execute();
 	}
 
-	//∞‘¿”¿Ã ≥°≥µ¿ª∂ß false∏¶ π›»Ø
+	//Í≤åÏûÑÏù¥ ÎÅùÎÇ¨ÏùÑÎïå falseÎ•º Î∞òÌôò
 	if (deadPlayerCount >= (MAX_PLAYER - 1))
 	{
 		return false;
@@ -239,8 +248,8 @@ IPlayerGetter* Environment::getWinner()
 	{
 		if (!players[i]->amIDead())
 		{
-			break;
 			winner = players[i];
+			break;
 		}
 	}
 	return winner;
@@ -251,25 +260,25 @@ bool Environment::buyCity(IPlayerSetter *player, int cityIndex, int level)
 {
 	if (player->getMoney() < board[cityIndex]->getPrice(level))
 	{
-		//µ∑¿Ã ∫Œ¡∑«“∂ß ±∏∏≈«œ∑¡«—¥Ÿ∏È
-		cout << player->getName() << " µ∑¿Ã ∫Œ¡∑«—µ• µµΩ√ " << board[cityIndex]->getName() << "∏¶ ±∏¿‘«œ∑¡∞Ì «œºÃΩ¿¥œ¥Ÿ." << endl;
+		//ÎèàÏù¥ Î∂ÄÏ°±Ìï†Îïå Íµ¨Îß§ÌïòÎ†§ÌïúÎã§Î©¥
+		cout << player->getName() << " ÎèàÏù¥ Î∂ÄÏ°±ÌïúÎç∞ ÎèÑÏãú " << board[cityIndex]->getName() << "Î•º Íµ¨ÏûÖÌïòÎ†§Í≥† ÌïòÏÖ®ÏäµÎãàÎã§." << endl;
 		return false;
 	}
 	else
 	{
 		player->setMoney(player->getMoney() - board[cityIndex]->getPrice(level));
 		board[cityIndex]->setOwnerID(player->getID());
-		cout << player->getName() << " µµΩ√ " << board[cityIndex]->getName() << "∏¶ ±∏¿‘ «œºÃΩ¿¥œ¥Ÿ." << endl;
+		cout << player->getName() << " ÎèÑÏãú " << board[cityIndex]->getName() << "Î•º Íµ¨ÏûÖ ÌïòÏÖ®ÏäµÎãàÎã§." << endl;
 	}
 	return true;
 }
 
 bool Environment::sellCity(IPlayerSetter *player, int cityIndex)
 {
-	//º“¿Ø±«¿⁄∞° ∞∞æ∆æﬂ¡ˆ∏∏ ∆«∏≈ «“ ºˆ ¿÷¥Ÿ
+	//ÏÜåÏú†Í∂åÏûêÍ∞Ä Í∞ôÏïÑÏïºÏßÄÎßå ÌåêÎß§ Ìï† Ïàò ÏûàÎã§
 	if (board[cityIndex]->getOwnerID() == player->getID())
 	{
-		//∆«∏≈∞°∞›¿∫ √÷¡æ∞°∞›∏∏ πﬁ¿ª ºˆ ¿÷¥Ÿ..∆–≥Œ∆º¿”
+		//ÌåêÎß§Í∞ÄÍ≤©ÏùÄ ÏµúÏ¢ÖÍ∞ÄÍ≤©Îßå Î∞õÏùÑ Ïàò ÏûàÎã§..Ìå®ÎÑêÌã∞ÏûÑ
 		player->setMoney(player->getMoney() + board[cityIndex]->curSellPrice());
 		board[cityIndex]->LevelReset();
 		board[cityIndex]->setOwnerID(noOwnerflag);

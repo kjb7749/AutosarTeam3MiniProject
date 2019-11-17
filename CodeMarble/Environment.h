@@ -1,8 +1,8 @@
 #pragma once
-//#include "ICitySetter.h"
 #include "IEnvironmentSetter.h"
 #include "Player.h"
 #include "City.h"
+#include <string>
 
 class Environment : public IEnvironmentSetter
 {
@@ -20,7 +20,7 @@ private:
 	int subsidy;
 
 public:
-	Environment();
+	Environment(std::string path);
 	virtual ~Environment();
 
 	virtual int getCityCount();

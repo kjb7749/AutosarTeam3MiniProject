@@ -26,7 +26,7 @@ void DataViewer::setEnvironment(IEnvironmentSetter *env)
 {
 	this->env = env;
 
-	////ÇØ´ç ·ÎÁ÷Àº Á¾¼Ó¼ºÀ¸·Î ÀÎÇØ env ´ÙÀ½¿¡ ¼³Á¤µÇ¾î¾ß ÇÑ´Ù. ÇÏÁö¸¸ ÀÌ À§Ä¡°¡ ÁÁÁö ¾ÊÀº°Í °°´Ù
+	////í•´ë‹¹ ë¡œì§ì€ ì¢…ì†ì„±ìœ¼ë¡œ ì¸í•´ env ë‹¤ìŒì— ì„¤ì •ë˜ì–´ì•¼ í•œë‹¤. í•˜ì§€ë§Œ ì´ ìœ„ì¹˜ê°€ ì¢‹ì§€ ì•Šì€ê²ƒ ê°™ë‹¤
 	cityViewerCount = 8;
 	playerViewerCount = 8;
 
@@ -94,7 +94,7 @@ int DataViewer::getMoney_Average()
 }
 int DataViewer::getMoney_Median()
 {
-	//Á¤·Ä¹®Á¦...´Â ³ªÁß¿¡ ÀÚ·á±¸Á¶¸¦ ¾Æ¹«·¡µµ ¹Ù²ã¾ß °Ú´Ù..
+	//ì •ë ¬ë¬¸ì œ...ëŠ” ë‚˜ì¤‘ì— ìë£Œêµ¬ì¡°ë¥¼ ì•„ë¬´ë˜ë„ ë°”ê¿”ì•¼ ê² ë‹¤..
 	return 0;
 }
 

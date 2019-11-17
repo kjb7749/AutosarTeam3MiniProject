@@ -44,12 +44,12 @@ public:
 	void setEnvironment(IEnvironmentSetter *env);
 	void ClearMemory();
 
-	//°ÔÀÓ °øÅë ¸Ş¼Òµå, ¶ó¿îµå ¼ö °°Àº
+	//ê²Œì„ ê³µí†µ ë©”ì†Œë“œ, ë¼ìš´ë“œ ìˆ˜ ê°™ì€
 	int getRound_Mine();
 	int getRound_Other(int ID);
 	int* getRound_Others();
 
-	//±İÀü ¸Ş¼Òµå
+	//ê¸ˆì „ ë©”ì†Œë“œ
 	int getMoney_Mine();
 	int getMoney_Other(int ID);
 	int getMoney_Maximum();
@@ -63,8 +63,8 @@ public:
 	PlayerViewer& getMe();
 	PlayerViewer& getPlayer_WithID(int ID);
 
-	CityViewer& getCities_Mine();					//³ªÀÇ µµ½Ã¸¦ °¡Á®¿Â´Ù
-	CityViewer& getCities_All();					//¸ğµç µµ½Ã Á¤º¸¸¦ °¡Á®¿Â´Ù
+	CityViewer& getCities_Mine();					//ë‚˜ì˜ ë„ì‹œë¥¼ ê°€ì ¸ì˜¨ë‹¤
+	CityViewer& getCities_All();					//ëª¨ë“  ë„ì‹œ ì •ë³´ë¥¼ ê°€ì ¸ì˜¨ë‹¤
 	CityViewer& getCities_Others();
 	CityViewer& getCities_Other(int ID);
 

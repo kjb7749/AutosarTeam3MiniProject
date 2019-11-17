@@ -1,10 +1,10 @@
-#include "Player.h"
+ï»¿#include "Player.h"
 #include <stdlib.h>
 #include <iostream>
 using namespace std;
 
 
-Player::Player(IEnvironmentSetter *env, int id, char *name, int seedMoney)
+Player::Player(IEnvironmentSetter *env, int id, string name, int seedMoney)
 {
 	viewer.setEnvironment(env);
 	warningCount = 0;
@@ -12,10 +12,7 @@ Player::Player(IEnvironmentSetter *env, int id, char *name, int seedMoney)
 	deadflag = false;
 
 
-	this->name = new char[sizeof(char)*strlen(name)+1];
-	memset(this->name, NULL, strlen(name+1));
-	strcpy(this->name, name);
-
+	this->name = name;
 	this->money = seedMoney;
 	this->ID = id;
 	this->env = env;
@@ -44,50 +41,50 @@ int Player::RollDice()
 void Player::increaseWarning()
 {
 	++warningCount;
-	cout << getName() << " °æ°í " << warningCount <<"È¸!!" << endl;
+	cout << getName() << " ê²½ê³  " << warningCount <<"íšŒ!!" << endl;
 	if (warningCount > maximumWarningCount)
 	{
-		cout << "[¡Ø SYSTEM ¡Ø]"<< getName() << " °æ°í ´©Àû ÆÄ»ê Ã³¸®!!!!" << endl;
+		cout << "[â€» SYSTEM â€»]"<< getName() << " ê²½ê³  ëˆ„ì  íŒŒì‚° ì²˜ë¦¬!!!!" << endl;
 		IamDie();
 	}
 }
 
 void Player::Move(int value)
 {
-	//ÀÎµ¦½º¸¦ ÀÌµ¿½ÃÄÑÁİ´Ï´Ù
+	//ì¸ë±ìŠ¤ë¥¼ ì´ë™ì‹œì¼œì¤ë‹ˆë‹¤
 	if ((curIndex + value) >= env->getCityCount())
 	{
-		//ÇÑ¹ÙÄû¸¦ µ¹¾Ò±â ¶§¹®¿¡ Ãß°¡±İÀ» Áö¿øÇÕ´Ï´Ù
+		//í•œë°”í€´ë¥¼ ëŒì•˜ê¸° ë•Œë¬¸ì— ì¶”ê°€ê¸ˆì„ ì§€ì›í•©ë‹ˆë‹¤
 		setMoney(getMoney() + env->getSubsidy());
-		cout << getName() << " ÇÑ¹ÙÄû¸¦ µ¹¾Æ¼­ Áö¿ø±İ" << env->getSubsidy() << "À» ¹Ş¾Ò½À´Ï´Ù!" << endl;
+		cout << getName() << " í•œë°”í€´ë¥¼ ëŒì•„ì„œ ì§€ì›ê¸ˆ" << env->getSubsidy() << "ì„ ë°›ì•˜ìŠµë‹ˆë‹¤!" << endl;
 	}
 	curIndex = (curIndex + value) % env->getCityCount();
-	//¿©ÇàÇÑ µµ½ÃÀÇ Á¤º¸¸¦ ¹Ş¾Æ¿É´Ï´Ù
+	//ì—¬í–‰í•œ ë„ì‹œì˜ ì •ë³´ë¥¼ ë°›ì•„ì˜µë‹ˆë‹¤
 	ICityGetter *pCity = env->getCity(curIndex);
 	if (pCity != nullptr)
 	{
-		//if (ID != pCity->getOwnerID())		///ÀÌ ±¸¹®ÀÌ ÇÊ¿ä ¾ø´Ù°í »ı°¢ÇÑ ÀÌÀ¯´Â ±¸¸Å ·ÎÁ÷Àº ¾î¶°ÇÑ »óÈ²¿¡¼­°Ç ½ÇÇàµÇ¾î¾ß ÇÏ±â ¶§¹®ÀÌ´Ù
+		//if (ID != pCity->getOwnerID())		///ì´ êµ¬ë¬¸ì´ í•„ìš” ì—†ë‹¤ê³  ìƒê°í•œ ì´ìœ ëŠ” êµ¬ë§¤ ë¡œì§ì€ ì–´ë– í•œ ìƒí™©ì—ì„œê±´ ì‹¤í–‰ë˜ì–´ì•¼ í•˜ê¸° ë•Œë¬¸ì´ë‹¤
 		{
-			//ÁÖÀÎÀÌ ÀÖ´Â µµ½ÃÀÎÁö È®ÀÎÇÑ´Ù
+			//ì£¼ì¸ì´ ìˆëŠ” ë„ì‹œì¸ì§€ í™•ì¸í•œë‹¤
 			env->setCaller(this);
 			IPlayerSetter *cityOwner = env->whosCity(pCity->getOwnerID());
 
-			//¸¸¾à ÁÖÀÎÀÌ ÀÖ´Â µµ½Ã¶ó¸é
+			//ë§Œì•½ ì£¼ì¸ì´ ìˆëŠ” ë„ì‹œë¼ë©´
 			if (cityOwner != nullptr)
 			{
-				//ÅëÇà·á¸¦ °è»êÇÑ´Ù
+				//í†µí–‰ë£Œë¥¼ ê³„ì‚°í•œë‹¤
 				int enterfee = pCity->getEnterfee();
 
-				//µ·À» ³Â´Âµ¥µµ ÀÜ±İÀÌ ³²¾ÆÀÖ´Ù¸é
+				//ëˆì„ ëƒˆëŠ”ë°ë„ ì”ê¸ˆì´ ë‚¨ì•„ìˆë‹¤ë©´
 				int debt;
 				if ((debt = giveMoneyTo(enterfee, cityOwner)) != 0)
 				{
-					//¸ÕÀú SellPlanÀ» µ¿ÀÛ½ÃÅ²´Ù
+					//ë¨¼ì € SellPlanì„ ë™ì‘ì‹œí‚¨ë‹¤
 					viewer.ClearMemory();
 					int sellOrder = logic->SellPlan(debt, viewer);
-					///À¯ÀúÀÇ ¾Æ¿ôÇ² °ËÁõ
-					//µğÄÚµù ÈÄ ÆÇ¸ÅÇÑ´Ù
-					//µğÄÚµùÀ» ÇÔ¼ö·Î ÇÏÁö ¾Ê´Â ÀÌÀ¯´Â ÇÔ¼ö¸¦ ¸¸µé±â ±ÍÂú¾Æ¼­ ÀÌ´Ù... ¹è¿­ ÇüÅÂ·Î ¹Ş´Â°Ç È¿À²ÀûÀÌÁöµµ ÆíÇÏÁöµµ ¾Ê´Ù ±×³É Á÷Á¢ ÄÚµå¿¡ ±¸ÇöÇÏÀÚ
+					///ìœ ì €ì˜ ì•„ì›ƒí’‹ ê²€ì¦
+					//ë””ì½”ë”© í›„ íŒë§¤í•œë‹¤
+					//ë””ì½”ë”©ì„ í•¨ìˆ˜ë¡œ í•˜ì§€ ì•ŠëŠ” ì´ìœ ëŠ” í•¨ìˆ˜ë¥¼ ë§Œë“¤ê¸° ê·€ì°®ì•„ì„œ ì´ë‹¤... ë°°ì—´ í˜•íƒœë¡œ ë°›ëŠ”ê±´ íš¨ìœ¨ì ì´ì§€ë„ í¸í•˜ì§€ë„ ì•Šë‹¤ ê·¸ëƒ¥ ì§ì ‘ ì½”ë“œì— êµ¬í˜„í•˜ì
 					for (int i = 0; i < 32; ++i)
 					{
 						int flag = sellOrder & (0x00000001 << i);
@@ -95,28 +92,28 @@ void Player::Move(int value)
 						{
 							if (env->sellCity(this, i) == false)
 							{
-								//ÀÖÁöµµ ¾Ê´Â µµ½Ã¸¦ ÆÇ¸ÅÇÏ·Á°í ÇßÀ¸¹Ç·Î °æ°í Ä«¿îÆ®¸¦ Áõ±â½ÃÅ²´Ù
+								//ìˆì§€ë„ ì•ŠëŠ” ë„ì‹œë¥¼ íŒë§¤í•˜ë ¤ê³  í–ˆìœ¼ë¯€ë¡œ ê²½ê³  ì¹´ìš´íŠ¸ë¥¼ ì¦ê¸°ì‹œí‚¨ë‹¤
 								increaseWarning();
 							}
 						}
 					}
-					//ÆÇ¸ÅÀü·«À¸·Î µµ½Ã¸¦ ÆÇ¸Å ÇßÀ½¿¡µµ ºÒ±¸ÇÏ°í ÁöºÒÇÏÁö ¸øÇÑ´Ù¸é ÇÃ·¹ÀÌ¾î´Â ÆÄ»êÇÏ°Ô µÈ´Ù
+					//íŒë§¤ì „ëµìœ¼ë¡œ ë„ì‹œë¥¼ íŒë§¤ í–ˆìŒì—ë„ ë¶ˆêµ¬í•˜ê³  ì§€ë¶ˆí•˜ì§€ ëª»í•œë‹¤ë©´ í”Œë ˆì´ì–´ëŠ” íŒŒì‚°í•˜ê²Œ ëœë‹¤
 					if (!giveMoneyTo(debt, cityOwner))
 					{
-						IamDie();		//³ª Á×¾î~
+						IamDie();		//ë‚˜ ì£½ì–´~
 					}
 				}
 				//viewer.ClearMemory();
 				//logic->TravelOtherCity(viewer);
-				///°ËÁõÄÚµå
-				//ÇÏÁö¸¸ ¾ÆÁ÷ ÀÇ¹Ì°¡ ¾ø´Ù
+				///ê²€ì¦ì½”ë“œ
+				//í•˜ì§€ë§Œ ì•„ì§ ì˜ë¯¸ê°€ ì—†ë‹¤
 			}
 		}
-		//¿¬»êÀ» Ã³¸®ÇÕ´Ï´Ù
+		//ì—°ì‚°ì„ ì²˜ë¦¬í•©ë‹ˆë‹¤
 		env->setCaller(this);
 		viewer.ClearMemory();
 		int buyLevel = logic->BuyPlan(viewer);
-		///°ËÁõÄÚµå
+		///ê²€ì¦ì½”ë“œ
 		if (env->buyCity(this, curIndex, buyLevel) == false)
 		{
 			increaseWarning();
@@ -131,7 +128,7 @@ void Player::setLogic(Logic &logic)
 
 void Player::IamDie()
 {
-	//°¡Áö°í ÀÖ´Â ¸ğµç µµ½Ã¸¦ ÃÊ±âÈ­ ÇÑ´Ù
+	//ê°€ì§€ê³  ìˆëŠ” ëª¨ë“  ë„ì‹œë¥¼ ì´ˆê¸°í™” í•œë‹¤
 	deadflag = true;
 	env->oneMorePlayerDead();
 }
@@ -141,7 +138,7 @@ bool Player::amIDead()
 	return deadflag;
 }
 
-char *Player::getName()
+string Player::getName()
 {
 	return name;
 }
@@ -155,13 +152,13 @@ void Player::Execute()
 {
 	int diceNumber[2] = { RollDice(), RollDice() };
 
-	cout << "ÁÖ»çÀ§ ±¼¸² " << diceNumber[0] << ", " << diceNumber[1] << " : " << diceNumber[0] + diceNumber[1] << endl;
+	cout << "ì£¼ì‚¬ìœ„ êµ´ë¦¼ " << diceNumber[0] << ", " << diceNumber[1] << " : " << diceNumber[0] + diceNumber[1] << endl;
 
 	Move(diceNumber[0] + diceNumber[1]);
 
 	if (diceNumber[0] == diceNumber[1])
 	{
-		cout << "´õºí! ÁÖ»çÀ§ ÇÑ¹ø ´õ ±¼¸®±â!" << endl;
+		cout << "ë”ë¸”! ì£¼ì‚¬ìœ„ í•œë²ˆ ë” êµ´ë¦¬ê¸°!" << endl;
 		Execute();
 	}
 }
@@ -176,7 +173,7 @@ int Player::giveMoneyTo(int amount, IPlayerSetter *other)
 	if (money - amount < 0)
 	{
 		int remainDebt = amount - money;
-		//ÀüÀç»êÀ» ¸ô¼öÇÑ´Ù, ÇÏÁö¸¸ ÆÇ¸Å°¡ ÇÊ¿äÇÑ Æ¯¼ö »óÈ²ÀÌ´Ù
+		//ì „ì¬ì‚°ì„ ëª°ìˆ˜í•œë‹¤, í•˜ì§€ë§Œ íŒë§¤ê°€ í•„ìš”í•œ íŠ¹ìˆ˜ ìƒí™©ì´ë‹¤
 		other->setMoney(other->getMoney() + money);
 		money = 0;
 		return remainDebt;

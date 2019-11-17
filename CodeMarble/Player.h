@@ -2,18 +2,19 @@
 #include "Logic.h"
 #include "IPlayerSetter.h"
 #include "IEnvironmentSetter.h"
+#include <string>
 
 
-//°ÔÅÍ´Â ´Ü¼ø Á¤º¸ Á¢±Ù ±â´É¸¸
-//¼¼ÅÍ´Â Á¤º¸ Á¢±Ù ÀÌ»óÀÇ ÄÜÅ©¸®Æ® °´Ã¼ Á¤º¸ÀÇ º¯È­¸¦ ÃÊ·¡ÇÏ´Â ±â´ÉµéÀ» ´ã´çÇÑ´Ù
+//ê²Œí„°ëŠ” ë‹¨ìˆœ ì •ë³´ ì ‘ê·¼ ê¸°ëŠ¥ë§Œ
+//ì„¸í„°ëŠ” ì •ë³´ ì ‘ê·¼ ì´ìƒì˜ ì½˜í¬ë¦¬íŠ¸ ê°ì²´ ì •ë³´ì˜ ë³€í™”ë¥¼ ì´ˆë˜í•˜ëŠ” ê¸°ëŠ¥ë“¤ì„ ë‹´ë‹¹í•œë‹¤
 class Player : public IPlayerSetter
 {
 private:
-	//ÇÃ·¹ÀÌ¾î°¡ ÀÇµµÀûÀ¸·Î Á¤»óÀûÀÌÁö ¾ÊÀº Ã³¸®¸¦ º¸³¾¶§ ÀÌ¸¦ °æ°íÇÏ°í Æ¯Á¤ÀÌ»ó °æ°í¸¦ ¹Ş¾ÒÀ» °æ¿ì »ç¸ÁÃ³¸® ÇÏ±â À§ÇÑ °ª
+	//í”Œë ˆì´ì–´ê°€ ì˜ë„ì ìœ¼ë¡œ ì •ìƒì ì´ì§€ ì•Šì€ ì²˜ë¦¬ë¥¼ ë³´ë‚¼ë•Œ ì´ë¥¼ ê²½ê³ í•˜ê³  íŠ¹ì •ì´ìƒ ê²½ê³ ë¥¼ ë°›ì•˜ì„ ê²½ìš° ì‚¬ë§ì²˜ë¦¬ í•˜ê¸° ìœ„í•œ ê°’
 	static const int maximumWarningCount = 5;
 	int warningCount;
 	bool deadflag;
-	char *name;
+	string name;
 	int ID;
 	int curIndex;
 	IEnvironmentSetter *env;
@@ -22,13 +23,13 @@ private:
 	Logic *logic;
 
 public:
-	Player(IEnvironmentSetter *env, int id, char *name, int seedMoney);
+	Player(IEnvironmentSetter *env, int id, string name, int seedMoney);
 	virtual ~Player();
 
 public:
 	virtual int getMoney();
 	virtual bool amIDead();
-	virtual char *getName();
+	virtual string getName();
 	virtual int getCurIndex();
 	virtual int getID();
 
@@ -46,7 +47,7 @@ public:
 
 
 
-///BuyPlan return value (0:¾Æ¹«°Íµµ ¾ÈÇÔ, 1:¶¥¸¸ ±¸¸Å, 2:°Ç¹°1 ±¸¸Å, 3:°Ç¹°2 ±¸¸Å, 4:°Ç¹°3 ±¸¸Å, 5:ºÒ°¡»çÀÇ °Ç¼³)
+///BuyPlan return value (0:ì•„ë¬´ê²ƒë„ ì•ˆí•¨, 1:ë•…ë§Œ êµ¬ë§¤, 2:ê±´ë¬¼1 êµ¬ë§¤, 3:ê±´ë¬¼2 êµ¬ë§¤, 4:ê±´ë¬¼3 êµ¬ë§¤, 5:ë¶ˆê°€ì‚¬ì˜ ê±´ì„¤)
 ///SellPlan return value ()
 ///
 
