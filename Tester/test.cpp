@@ -33,6 +33,6 @@ TEST(TestCaseName, TestName) {
 		cout << "승자는 " << winner->getName() << " 입니다! 축하합니다!!!  짝짝짝짝" << endl;
 	}
 
-	EXPECT_EQ(1, 1);
-	EXPECT_TRUE(true);
+	//EXPECT_EQ(1, 1);
+	//EXPECT_TRUE(true);
 }

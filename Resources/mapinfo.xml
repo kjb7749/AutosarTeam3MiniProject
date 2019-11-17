@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="euc-kr"?>
 
 <map>
-  <mapName>????대?</mapName>
+  <mapName>도시지도</mapName>
     <cities>
       <city>
         <cityName>서울</cityName>
@@ -11,179 +11,179 @@
         <cityInfo>서울</cityInfo>
       </city>
       <city>
-        <cityName>도쿄</cityName>
+        <cityName>싱가포르</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>도쿄</cityInfo>
+        <cityInfo>싱가포르</cityInfo>
       </city>
       <city>
-        <cityName>서울</cityName>
+        <cityName>프라하</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>서울</cityInfo>
+        <cityInfo>프라하</cityInfo>
       </city>
       <city>
-        <cityName>도쿄</cityName>
+        <cityName>베니스</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>도쿄</cityInfo>
+        <cityInfo>베니스</cityInfo>
       </city>
       <city>
-        <cityName>서울</cityName>
+        <cityName>세비야</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>서울</cityInfo>
+        <cityInfo>세비야</cityInfo>
       </city>
       <city>
-        <cityName>도쿄</cityName>
+        <cityName>뉴욕</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>도쿄</cityInfo>
+        <cityInfo>뉴욕</cityInfo>
       </city>
       <city>
-        <cityName>서울</cityName>
+        <cityName>라싸</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>서울</cityInfo>
+        <cityInfo>라싸</cityInfo>
       </city>
       <city>
-        <cityName>도쿄</cityName>
+        <cityName>리우데자네이루</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>도쿄</cityInfo>
+        <cityInfo>리우데자네이루</cityInfo>
       </city>
       <city>
-        <cityName>서울</cityName>
+        <cityName>런던</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>서울</cityInfo>
+        <cityInfo>런던</cityInfo>
       </city>
       <city>
-        <cityName>도쿄</cityName>
+        <cityName>마라케시</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>도쿄</cityInfo>
+        <cityInfo>마라케시</cityInfo>
       </city>
       <city>
-        <cityName>서울</cityName>
+        <cityName>페트라</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>서울</cityInfo>
+        <cityInfo>페트라</cityInfo>
       </city>
       <city>
-        <cityName>도쿄</cityName>
+        <cityName>로마</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>도쿄</cityInfo>
+        <cityInfo>로마</cityInfo>
       </city>
       <city>
-        <cityName>서울</cityName>
+        <cityName>바라나시</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>서울</cityInfo>
+        <cityInfo>바라나시</cityInfo>
       </city>
       <city>
-        <cityName>도쿄</cityName>
+        <cityName>피렌체</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>도쿄</cityInfo>
+        <cityInfo>피렌체</cityInfo>
       </city>
       <city>
-        <cityName>서울</cityName>
+        <cityName>하바나</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>서울</cityInfo>
+        <cityInfo>하바나</cityInfo>
       </city>
       <city>
-        <cityName>도쿄</cityName>
+        <cityName>예루살렘</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>도쿄</cityInfo>
+        <cityInfo>예루살렘</cityInfo>
       </city>
       <city>
-        <cityName>서울</cityName>
+        <cityName>파리</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>서울</cityInfo>
+        <cityInfo>파리</cityInfo>
       </city>
       <city>
-        <cityName>도쿄</cityName>
+        <cityName>북경</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>도쿄</cityInfo>
+        <cityInfo>북경</cityInfo>
       </city>
       <city>
-        <cityName>서울</cityName>
+        <cityName>랄리벨라</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>서울</cityInfo>
+        <cityInfo>랄리벨라</cityInfo>
       </city>
       <city>
-        <cityName>도쿄</cityName>
+        <cityName>그라나다</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>도쿄</cityInfo>
+        <cityInfo>그라나다</cityInfo>
       </city>
       <city>
-        <cityName>서울</cityName>
+        <cityName>아테네</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>서울</cityInfo>
+        <cityInfo>아테네</cityInfo>
       </city>
       <city>
-        <cityName>도쿄</cityName>
+        <cityName>바간</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>도쿄</cityInfo>
+        <cityInfo>바간</cityInfo>
       </city>
       <city>
-        <cityName>서울</cityName>
+        <cityName>카트만두</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>서울</cityInfo>
+        <cityInfo>카트만두</cityInfo>
       </city>
       <city>
-        <cityName>도쿄</cityName>
+        <cityName>리스본</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>도쿄</cityInfo>
+        <cityInfo>리스본</cityInfo>
       </city>
       <city>
-        <cityName>서울</cityName>
+        <cityName>이스탄불</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>서울</cityInfo>
+        <cityInfo>이스탄불</cityInfo>
       </city>
       <city>
-        <cityName>도쿄</cityName>
+        <cityName>암스테르담</cityName>
         <cityBenefit   a="5000" b="10000" c="15000" d="20000" />
         <cityBuyPrice a="10000" b="20000" c="30000" d="40000" />
         <citySellPrice a="10000" b="20000" c="30000" d="40000" />
-        <cityInfo>도쿄</cityInfo>
+        <cityInfo>암스테르담</cityInfo>
       </city>
     </cities>
 </map>

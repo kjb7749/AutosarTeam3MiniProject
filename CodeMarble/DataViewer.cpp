@@ -1,4 +1,4 @@
-#include "DataViewer.h"
+﻿#include "DataViewer.h"
 #include "Player.h"
 #include <stdlib.h>
 #include <cstdarg>
@@ -12,6 +12,14 @@ DataViewer::DataViewer()
 
 DataViewer::~DataViewer()
 {
+	for (int i = 0; i < env->getCityCount(); ++i)
+	{
+		delete[] cityViewer[i].cities;
+	}
+	for (int i = 0; i < env->getPlayerCount(); ++i)
+	{
+		delete[] playerViewer[i].player;
+	}
 	delete[] cityViewer;
 	delete[] playerViewer;
 }
